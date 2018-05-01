@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MudSharp.Data.Models.World.Actors
+﻿namespace MudSharp.Data.Models.World.Actors
 {
+    /// <summary>
+    /// The actor's gender.
+    /// </summary>
     public enum Gender
     {
         Unknown,
@@ -12,6 +11,9 @@ namespace MudSharp.Data.Models.World.Actors
         Genderless
     }
 
+    /// <summary>
+    /// The actor type (PC or NPC).
+    /// </summary>
     public enum ActorType
     {
         Unknown,
@@ -19,6 +21,9 @@ namespace MudSharp.Data.Models.World.Actors
         NonPlayer
     }
 
+    /// <summary>
+    /// The actor's class.
+    /// </summary>
     public enum ActorClass
     {
         Undefined,
@@ -28,6 +33,9 @@ namespace MudSharp.Data.Models.World.Actors
         Fighter
     }
 
+    /// <summary>
+    /// The actor's alignment.
+    /// </summary>
     public enum ActorAlignment
     {
         Good,
@@ -35,6 +43,9 @@ namespace MudSharp.Data.Models.World.Actors
         Evil
     }
 
+    /// <summary>
+    /// The actor's position.
+    /// </summary>
     public enum ActorPosition
     {
         Dead,
@@ -48,6 +59,9 @@ namespace MudSharp.Data.Models.World.Actors
         Standing
     }
 
+    /// <summary>
+    /// Supported wear slots for all actors.
+    /// </summary>
     public enum WearSlot
     {
         Head,
@@ -72,14 +86,39 @@ namespace MudSharp.Data.Models.World.Actors
         Shield
     }
 
-
+    /// <summary>
+    /// Statistics for all actors.
+    /// </summary>
     public struct ActorStats
     {
+        /// <summary>
+        /// The actor's strength.
+        /// </summary>
         uint Strength;
+
+        /// <summary>
+        /// The actor's intelligence.
+        /// </summary>
         uint Intelligence;
+
+        /// <summary>
+        /// The actor's dexterity.
+        /// </summary>
         uint Dexterity;
+
+        /// <summary>
+        /// The actor's wisdom. Used primarily by clerics to determine how much power they can have
+        /// </summary>
         uint Wisdom;
+
+        /// <summary>
+        /// The actor's constitution. Used primarily for hit points.
+        /// </summary>
         uint Constitution;
+
+        /// <summary>
+        /// The actor's charisma. Used primarily for how many actors can follow the actor.
+        /// </summary>
         uint Charisma;
 
         uint MaxHealth;
