@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Server", "MudSharp.Server\MudSharp.Server.csproj", "{5C75A9A8-5CA3-4D71-9BA9-592EF96014D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Data", "MudSharp.Data\MudSharp.Data.csproj", "{202EABAD-43D1-4C5A-B555-0792057DE9D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5C75A9A8-5CA3-4D71-9BA9-592EF96014D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C75A9A8-5CA3-4D71-9BA9-592EF96014D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C75A9A8-5CA3-4D71-9BA9-592EF96014D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
