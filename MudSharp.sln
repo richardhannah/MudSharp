@@ -1,16 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27428.2043
+VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Server", "MudSharp.Server\MudSharp.Server.csproj", "{5C75A9A8-5CA3-4D71-9BA9-592EF96014D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudSharp.Server", "MudSharp.Server\MudSharp.Server.csproj", "{5C75A9A8-5CA3-4D71-9BA9-592EF96014D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Data", "MudSharp.Data\MudSharp.Data.csproj", "{202EABAD-43D1-4C5A-B555-0792057DE9D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudSharp.Data", "MudSharp.Data\MudSharp.Data.csproj", "{202EABAD-43D1-4C5A-B555-0792057DE9D9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A468179D-FE70-41CF-A45A-7408174B3E0D}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Accounts", "MudSharp.Accounts\MudSharp.Accounts.csproj", "{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Admin", "MudSharp.Admin\MudSharp.Admin.csproj", "{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Admin.Web", "MudSharp.Admin.Web\MudSharp.Admin.Web.csproj", "{9F0FA44B-AEB1-4F6D-A4B5-45CBA3767582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.World", "MudSharp.World\MudSharp.World.csproj", "{57BE27D0-1F5A-453A-8E86-B70A7CB4B4D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Tests", "MudSharp.Tests\MudSharp.Tests.csproj", "{5A0DAC74-552B-43C3-A2EB-2DCED81C7D5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +36,26 @@ Global
 		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F0FA44B-AEB1-4F6D-A4B5-45CBA3767582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0FA44B-AEB1-4F6D-A4B5-45CBA3767582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0FA44B-AEB1-4F6D-A4B5-45CBA3767582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0FA44B-AEB1-4F6D-A4B5-45CBA3767582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57BE27D0-1F5A-453A-8E86-B70A7CB4B4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57BE27D0-1F5A-453A-8E86-B70A7CB4B4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57BE27D0-1F5A-453A-8E86-B70A7CB4B4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57BE27D0-1F5A-453A-8E86-B70A7CB4B4D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0DAC74-552B-43C3-A2EB-2DCED81C7D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0DAC74-552B-43C3-A2EB-2DCED81C7D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0DAC74-552B-43C3-A2EB-2DCED81C7D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0DAC74-552B-43C3-A2EB-2DCED81C7D5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
