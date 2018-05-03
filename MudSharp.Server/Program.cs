@@ -1,4 +1,9 @@
-﻿using System;
+﻿using MudSharp.Accounts.Providers;
+using Ninject;
+using Ninject.Activation;
+using Ninject.Infrastructure.Disposal;
+using System;
+using System.Threading;
 
 namespace MudSharp.Server
 {
@@ -6,7 +11,23 @@ namespace MudSharp.Server
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            ConfigureNinject();
         }
+
+        #region DI Configuration
+        /// <summary>
+        /// Configures the Ninject DI container.
+        /// </summary>
+        private static void ConfigureNinject()
+        {
+            IKernel kernel = new StandardKernel();
+
+            // Authentication
+            kernel.Bind<IAuthProvider>().To<LocalAuthProvider>();
+
+
+        }
+
+        #endregion
     }
 }
