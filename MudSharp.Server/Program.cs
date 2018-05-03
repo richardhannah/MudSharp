@@ -1,4 +1,4 @@
-﻿using MudSharp.Accounts.Providers;
+﻿using MudSharp.Server.Providers;
 using Ninject;
 using Ninject.Activation;
 using Ninject.Infrastructure.Disposal;
@@ -25,7 +25,9 @@ namespace MudSharp.Server
             // Authentication
             kernel.Bind<IAuthProvider>().To<LocalAuthProvider>();
 
-
+            // Configuration
+            kernel.Bind<IConfigProvider>().To<GlobalConfigProvider>()
+                .InSingletonScope();
         }
 
         #endregion

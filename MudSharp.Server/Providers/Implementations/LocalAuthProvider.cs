@@ -5,8 +5,9 @@ using System.Text;
 namespace MudSharp.Server.Providers
 {
     /// <inheritdoc />
-    public class LocalAuthProvider : IAuthProvider
+    internal sealed class LocalAuthProvider : IAuthProvider
     {
+        /// <inheritdoc />
         public bool Authenticate(string username, string password)
         {
             throw new NotImplementedException();

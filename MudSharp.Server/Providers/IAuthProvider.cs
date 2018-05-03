@@ -7,7 +7,7 @@ namespace MudSharp.Server.Providers
     /// <summary>
     /// Authentication and authorization provider interface.
     /// </summary>
-    public interface IAuthProvider
+    internal interface IAuthProvider
     {
         /// <summary>
         /// Attempts to authenticate a user with the given username and password combination.

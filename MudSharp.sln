@@ -12,15 +12,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Accounts", "MudSharp.Accounts\MudSharp.Accounts.csproj", "{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudSharp.Admin", "MudSharp.Admin\MudSharp.Admin.csproj", "{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Admin", "MudSharp.Admin\MudSharp.Admin.csproj", "{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudSharp.Admin.Web", "MudSharp.Admin.Web\MudSharp.Admin.Web.csproj", "{9F0FA44B-AEB1-4F6D-A4B5-45CBA3767582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Admin.Web", "MudSharp.Admin.Web\MudSharp.Admin.Web.csproj", "{9F0FA44B-AEB1-4F6D-A4B5-45CBA3767582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudSharp.World", "MudSharp.World\MudSharp.World.csproj", "{57BE27D0-1F5A-453A-8E86-B70A7CB4B4D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.World", "MudSharp.World\MudSharp.World.csproj", "{57BE27D0-1F5A-453A-8E86-B70A7CB4B4D1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudSharp.Tests", "MudSharp.Tests\MudSharp.Tests.csproj", "{5A0DAC74-552B-43C3-A2EB-2DCED81C7D5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MudSharp.Tests", "MudSharp.Tests\MudSharp.Tests.csproj", "{5A0DAC74-552B-43C3-A2EB-2DCED81C7D5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +34,6 @@ Global
 		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{202EABAD-43D1-4C5A-B555-0792057DE9D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F72C0D7-62B1-4DD1-8DB7-3591CDEB54C6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4477AF6-3FD3-4B81-9BBA-B994AD707C6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
