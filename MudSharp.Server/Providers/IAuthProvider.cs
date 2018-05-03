@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MudSharp.Accounts.Providers
+namespace MudSharp.Server.Providers
 {
     /// <summary>
     /// Authentication and authorization provider interface.

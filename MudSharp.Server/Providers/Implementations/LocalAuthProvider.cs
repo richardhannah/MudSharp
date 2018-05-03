@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MudSharp.Accounts.Providers
+namespace MudSharp.Server.Providers
 {
     /// <inheritdoc />
     public class LocalAuthProvider : IAuthProvider
