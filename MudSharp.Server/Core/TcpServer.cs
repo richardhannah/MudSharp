@@ -42,7 +42,15 @@ namespace MudSharp.Server.Core
         {
             if (_listener != null && _accept)
             {
-                var clientTask = _listener.AcceptTcpClientAsync();
+                while (true)
+                {
+                    var clientTask = _listener.AcceptTcpClientAsync();
+
+                    if (clientTask.Result != null)
+                    {
+                        var client = clientTask.Result;
+                    }
+                }
             }
         }
     }
