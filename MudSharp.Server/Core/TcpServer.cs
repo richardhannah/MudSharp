@@ -1,4 +1,5 @@
 ﻿using MudSharp.Server.Providers;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -7,21 +8,19 @@ using System.Text;
 
 namespace MudSharp.Server.Core
 {
+    /// <summary>
+    /// TCP server.
+    /// </summary>
     internal sealed class TcpServer
     {
+        [Inject]
         private readonly IConfigProvider _configProvider;
         private bool _accept = false;
         private TcpListener _listener;
 
-        #region Constructor
-
-        public TcpServer(IConfigProvider configProvider)
-        {
-            _configProvider = configProvider;
-        }
-
-        #endregion
-
+        /// <summary>
+        /// Configures the TCP server and starts the listener.
+        /// </summary>
         public void StartServer()
         {
             try
@@ -38,6 +37,9 @@ namespace MudSharp.Server.Core
             }
         }
 
+        /// <summary>
+        /// Listens on the open TCP socket for new connections.
+        /// </summary>
         public void Listen()
         {
             if (_listener != null && _accept)
@@ -49,6 +51,11 @@ namespace MudSharp.Server.Core
                     if (clientTask.Result != null)
                     {
                         var client = clientTask.Result;
+
+                        // Set to non-blocking.
+                        client.Client.Blocking = false;
+
+                        SessionManager.Instance.NewDescriptor(client);
                     }
                 }
             }

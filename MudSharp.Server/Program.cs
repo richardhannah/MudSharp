@@ -1,4 +1,5 @@
-﻿using MudSharp.Server.Providers;
+﻿using MudSharp.Server.Core;
+using MudSharp.Server.Providers;
 using Ninject;
 using Ninject.Activation;
 using Ninject.Infrastructure.Disposal;
@@ -12,11 +13,15 @@ namespace MudSharp.Server
         static void Main(string[] args)
         {
             ConfigureNinject();
+
+            var server = new TcpServer();
+            server.StartServer();
+            server.Listen();
         }
 
         #region DI Configuration
         /// <summary>
-        /// Configures the Ninject DI container.
+        /// Configures the Ninject container.
         /// </summary>
         private static void ConfigureNinject()
         {
