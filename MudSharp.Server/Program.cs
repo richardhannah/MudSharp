@@ -10,11 +10,13 @@ namespace MudSharp.Server
 {
     class Program
     {
+        private static IKernel _kernel;
+
         static void Main(string[] args)
         {
             ConfigureNinject();
 
-            var server = new TcpServer();
+            var server = new TcpServer(_kernel.Get<IConfigProvider>(), _kernel.Get<ILoggingProvider>());
             server.StartServer();
             server.Listen();
         }
@@ -25,14 +27,12 @@ namespace MudSharp.Server
         /// </summary>
         private static void ConfigureNinject()
         {
-            IKernel kernel = new StandardKernel();
+            _kernel = new StandardKernel();
 
-            // Authentication
-            kernel.Bind<IAuthProvider>().To<LocalAuthProvider>();
-
-            // Configuration
-            kernel.Bind<IConfigProvider>().To<GlobalConfigProvider>()
-                .InSingletonScope();
+            // Core
+            _kernel.Bind<IConfigProvider>().To<GlobalConfigProvider>();
+            _kernel.Bind<IAuthProvider>().To<LocalAuthProvider>();
+            _kernel.Bind<ILoggingProvider>().To<LocalLoggingProvider>();
         }
 
         #endregion

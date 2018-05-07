@@ -41,7 +41,11 @@ namespace MudSharp.Server.Providers
         /// </summary>
         private void Load()
         {
-            _coreConfig = _config.GetSection("Core") as CoreConfiguration;
+            _coreConfig = new CoreConfiguration()
+            {
+                ListenPort = int.Parse(_config["Core:ListenPort"]),
+                SendBufferSize = int.Parse(_config["Core:SendBufferSize"])
+            };
         }
 
         #endregion

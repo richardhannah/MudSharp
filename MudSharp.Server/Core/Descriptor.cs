@@ -4,9 +4,25 @@ using System;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MudSharp.Server.Core
 {
+    /// <summary>
+    /// Descriptor connection state.
+    /// </summary>
+    internal enum ConnectionState
+    {
+        Playing,
+        Disconnected,
+        GetUsername,
+        GetPassword,
+        NewUsername,
+        NewPassword,
+        VerifyNewPassword,
+        MainMenu
+    }
+
     /// <summary>
     /// Class describing a client descriptor.
     /// </summary>
@@ -15,12 +31,22 @@ namespace MudSharp.Server.Core
 
         #region Constructor
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="client"><see cref="TcpClient"/> to create the new descriptor from.</param>
         public Descriptor(TcpClient client)
         {
             Client = client ?? throw new ArgumentNullException(nameof(client));
 
             // We can assume that if we are creating a new descriptor that there is already a TcpClient connected.
-            if (client.Connected) ConnectionTime = DateTime.UtcNow;
+            ConnectionTime = DateTime.UtcNow;
+            State = ConnectionState.GetUsername;
+
+            Id = Guid.NewGuid();
+            IdleTics = 0;
+            Account = null;
+            Player = null;
         }
 
         #endregion
@@ -62,6 +88,11 @@ namespace MudSharp.Server.Core
         /// </summary>
         public Player Player { get; set; }
 
+        /// <summary>
+        /// The descriptor's current connection state.
+        /// </summary>
+        public ConnectionState State { get; set; }
+
         #endregion
 
 
@@ -71,7 +102,7 @@ namespace MudSharp.Server.Core
         /// Sends the specified message to the client.
         /// </summary>
         /// <param name="message">The message to send to the client.</param>
-        public async void SendAsync(string message)
+        public async Task SendAsync(string message)
         {
             if (!IsConnected) return;
 

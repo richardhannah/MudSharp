@@ -13,10 +13,16 @@ namespace MudSharp.Server.Core
     /// </summary>
     internal sealed class TcpServer
     {
-        [Inject]
         private readonly IConfigProvider _configProvider;
+        private readonly ILoggingProvider _loggingProvider;
         private bool _accept = false;
         private TcpListener _listener;
+
+        public TcpServer(IConfigProvider configProvider, ILoggingProvider loggingProvider)
+        {
+            _configProvider = configProvider;
+            _loggingProvider = loggingProvider;
+        }
 
         /// <summary>
         /// Configures the TCP server and starts the listener.
@@ -30,9 +36,12 @@ namespace MudSharp.Server.Core
 
                 _listener.Start();
                 _accept = true;
+
+                _loggingProvider.LogMessage($"Listening for connections on port {_configProvider.Core.ListenPort}");
             }
             catch (Exception e)
             {
+                _loggingProvider.LogMessage($"Caught exception at TcpClient.StartServer(): {e.Message}");
                 _accept = false;
             }
         }
@@ -40,7 +49,7 @@ namespace MudSharp.Server.Core
         /// <summary>
         /// Listens on the open TCP socket for new connections.
         /// </summary>
-        public void Listen()
+        public async void Listen()
         {
             if (_listener != null && _accept)
             {
@@ -52,10 +61,9 @@ namespace MudSharp.Server.Core
                     {
                         var client = clientTask.Result;
 
-                        // Set to non-blocking.
-                        client.Client.Blocking = false;
+                        _loggingProvider.LogMessage($"New connection from {client.Client.RemoteEndPoint.ToString()}");
 
-                        SessionManager.Instance.NewDescriptor(client);
+                        await SessionManager.Instance.NewDescriptorAsync(client);
                     }
                 }
             }
