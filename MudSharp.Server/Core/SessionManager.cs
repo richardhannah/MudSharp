@@ -81,6 +81,40 @@ namespace MudSharp.Server.Core
             await newDescriptor.SendAsync("Username (new for new account): ");
         }
 
+        /// <summary>
+        /// Removes the descriptor from the global descriptor list and closes the underlying socket.
+        /// </summary>
+        /// <param name="descriptor">The descriptor to disconnect.</param>
+        public void Close(Descriptor descriptor)
+        {
+            var endpoint = descriptor.Client.Client.RemoteEndPoint;
+
+            try
+            {
+                descriptor.Client.Close();
+                descriptor.Client.Dispose();
+                Descriptors.Remove(descriptor);
+
+                _loggingProvider.LogMessage($"Connection from {endpoint.ToString()} closed");
+            }
+            catch (Exception e)
+            {
+                _loggingProvider.LogMessage($"Could not close connection from {endpoint.ToString()}");
+                _loggingProvider.LogMessage($"Exception at SessionManager.CloseSocket(): {e.Message}");
+            }
+            
+        }
+
+
+        public void SendToEveryone(string message)
+        {
+            foreach (var desc in Descriptors)
+            {
+                if (desc.IsConnected)
+                    desc.Send(message);
+            }
+        }
+
         #endregion
     }
 }

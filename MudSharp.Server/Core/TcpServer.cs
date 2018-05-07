@@ -68,5 +68,14 @@ namespace MudSharp.Server.Core
                 }
             }
         }
+
+        /// <summary>
+        /// Processes input from the descriptor.
+        /// </summary>
+        /// <param name="descriptor"></param>
+        public async void ProcessInputAsync(Descriptor descriptor)
+        {
+            
+        }
     }
 }

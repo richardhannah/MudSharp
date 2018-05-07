@@ -11,14 +11,15 @@ namespace MudSharp.Server
     class Program
     {
         private static IKernel _kernel;
+        private static TcpServer _server;
 
         static void Main(string[] args)
         {
             ConfigureNinject();
 
-            var server = new TcpServer(_kernel.Get<IConfigProvider>(), _kernel.Get<ILoggingProvider>());
-            server.StartServer();
-            server.Listen();
+            _server = new TcpServer(_kernel.Get<IConfigProvider>(), _kernel.Get<ILoggingProvider>());
+            _server.StartServer();
+            _server.Listen();
         }
 
         #region DI Configuration
