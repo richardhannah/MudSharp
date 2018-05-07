@@ -44,7 +44,10 @@ namespace MudSharp.Server.Providers
             _coreConfig = new CoreConfiguration()
             {
                 ListenPort = int.Parse(_config["Core:ListenPort"]),
-                SendBufferSize = int.Parse(_config["Core:SendBufferSize"])
+                SendBufferSize = int.Parse(_config["Core:SendBufferSize"]),
+                NpcPulseRateInSeconds = int.Parse(_config["Core:NpcPulseRateInSeconds"]),
+                ZonePulseRateInSeconds = int.Parse(_config["Core:ZonePulseRateInSeconds"]),
+                CombatPulseRateInSeconds = int.Parse(_config["Core:CombatPulseRateInSeconds"])
             };
         }
 

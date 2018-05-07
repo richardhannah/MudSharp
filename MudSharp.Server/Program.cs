@@ -12,6 +12,7 @@ namespace MudSharp.Server
     {
         private static IKernel _kernel;
         private static TcpServer _server;
+        private static Game _game;
 
         static void Main(string[] args)
         {
@@ -20,6 +21,9 @@ namespace MudSharp.Server
             _server = new TcpServer(_kernel.Get<IConfigProvider>(), _kernel.Get<ILoggingProvider>());
             _server.StartServer();
             _server.Listen();
+
+            _game = new Game(_kernel.Get<IConfigProvider>(), _kernel.Get<ILoggingProvider>());
+            _game.Run();
         }
 
         #region DI Configuration
