@@ -75,6 +75,17 @@ namespace MudSharp.Server.Core
 
             if (timeSinceStart.TotalSeconds % _configProvider.Core.CombatPulseRateInSeconds == 0)
                 PulseCombat();
+
+            if (timeSinceStart.TotalSeconds % _configProvider.Core.AutosavePulseRateInSeconds == 0)
+                PulseAutosave();
+        }
+
+        /// <summary>
+        /// Processes player autosave.
+        /// </summary>
+        private void PulseAutosave()
+        {
+
         }
 
         /// <summary>

@@ -12,9 +12,6 @@ namespace MudSharp.Server.Providers
     {
         private IConfigurationRoot _config;
 
-        private CoreConfiguration _coreConfig;
-
-
         #region Constructor
 
         public GlobalConfigProvider()
@@ -31,7 +28,19 @@ namespace MudSharp.Server.Providers
 
         #endregion
 
-        public CoreConfiguration Core => _coreConfig;
+        #region Properties
+
+        /// <summary>
+        /// Core game configuration.
+        /// </summary>
+        public CoreConfiguration Core { get; private set; }
+
+        /// <summary>
+        /// Game world configuration.
+        /// </summary>
+        public WorldConfiguration World { get; private set; }
+
+        #endregion
 
 
         #region Private helpers
@@ -41,14 +50,20 @@ namespace MudSharp.Server.Providers
         /// </summary>
         private void Load()
         {
-            _coreConfig = new CoreConfiguration()
+            Core = new CoreConfiguration()
             {
                 ListenAddress = _config["Core:ListenAddress"] ?? "127.0.0.1",
                 ListenPort = int.Parse(_config["Core:ListenPort"]),
                 SendBufferSize = int.Parse(_config["Core:SendBufferSize"]),
                 NpcPulseRateInSeconds = int.Parse(_config["Core:NpcPulseRateInSeconds"]),
                 ZonePulseRateInSeconds = int.Parse(_config["Core:ZonePulseRateInSeconds"]),
-                CombatPulseRateInSeconds = int.Parse(_config["Core:CombatPulseRateInSeconds"])
+                CombatPulseRateInSeconds = int.Parse(_config["Core:CombatPulseRateInSeconds"]),
+                AutosavePulseRateInSeconds = int.Parse(_config["Core:AutosavePulseRateInSeconds"])
+            };
+
+            World = new WorldConfiguration()
+            {
+                DefaultStartRoom = int.Parse(_config["World:DefaultStartRoom"])
             };
         }
 

@@ -35,6 +35,11 @@ namespace MudSharp.Server.Configuration
         /// The number of seconds between pulses when processing zones (weather, etc...)
         /// </summary>
         public int ZonePulseRateInSeconds { get; set; }
+
+        /// <summary>
+        /// The number of seconds between player autosaves.
+        /// </summary>
+        public int AutosavePulseRateInSeconds { get; set; }
  
     }
 }
