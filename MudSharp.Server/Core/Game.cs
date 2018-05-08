@@ -65,6 +65,8 @@ namespace MudSharp.Server.Core
         {
             var timeSinceStart = DateTime.UtcNow - _gameStart;
 
+            CleanupDescriptors();
+
             if (timeSinceStart.TotalSeconds % _configProvider.Core.ZonePulseRateInSeconds == 0)
                 PulseZones();
 
@@ -97,6 +99,14 @@ namespace MudSharp.Server.Core
         private void PulseCombat()
         {
 
+        }
+
+        /// <summary>
+        /// Cleans up any disconnected descriptors.
+        /// </summary>
+        private void CleanupDescriptors()
+        {
+            
         }
     }
 }

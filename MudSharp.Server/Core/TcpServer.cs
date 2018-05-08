@@ -35,7 +35,7 @@ namespace MudSharp.Server.Core
         {
             try
             {
-                IPAddress address = IPAddress.Parse("127.0.0.1");
+                IPAddress address = IPAddress.Parse(_configProvider.Core.ListenAddress);
                 _listener = new TcpListener(address, _configProvider.Core.ListenPort);
 
                 _listener.Start();
@@ -89,7 +89,7 @@ namespace MudSharp.Server.Core
         /// </summary>
         public void Shutdown()
         {
-            _loggingProvider.LogMessage("Requesting cancellation of TCP listener task");
+            _loggingProvider.LogMessage("SHUTDOWN: Requesting cancellation of TCP listener task");
             _tokenSource.Cancel();
         }
 

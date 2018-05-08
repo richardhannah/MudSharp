@@ -27,7 +27,6 @@ namespace MudSharp.Server.Core
         /// <summary>
         /// The injected logging provider to use.
         /// </summary>
-        [Inject]
         private ILoggingProvider _loggingProvider;
 
         /// <summary>
@@ -37,6 +36,7 @@ namespace MudSharp.Server.Core
         {
             Descriptors = new HashSet<Descriptor>();
             CurrentPlayers = new KeyValuePair<string, Player>();
+            
         }
 
 
@@ -100,12 +100,15 @@ namespace MudSharp.Server.Core
             catch (Exception e)
             {
                 _loggingProvider.LogMessage($"Could not close connection from {endpoint.ToString()}");
-                _loggingProvider.LogMessage($"Exception at SessionManager.CloseSocket(): {e.Message}");
+                _loggingProvider.LogMessage($"Exception at SessionManager.Close(): {e.Message}");
             }
             
         }
 
-
+        /// <summary>
+        /// Sends a message to all connected descriptors.
+        /// </summary>
+        /// <param name="message">The message to send.</param>
         public void SendToEveryone(string message)
         {
             foreach (var desc in Descriptors)

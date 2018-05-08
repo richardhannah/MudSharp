@@ -43,6 +43,7 @@ namespace MudSharp.Server.Providers
         {
             _coreConfig = new CoreConfiguration()
             {
+                ListenAddress = _config["Core:ListenAddress"] ?? "127.0.0.1",
                 ListenPort = int.Parse(_config["Core:ListenPort"]),
                 SendBufferSize = int.Parse(_config["Core:SendBufferSize"]),
                 NpcPulseRateInSeconds = int.Parse(_config["Core:NpcPulseRateInSeconds"]),

@@ -7,6 +7,11 @@ namespace MudSharp.Server.Configuration
     public class CoreConfiguration
     {
         /// <summary>
+        /// The IP address the game will listen on.
+        /// </summary>
+        public string ListenAddress { get; set; }
+
+        /// <summary>
         /// The TCP port the game will listen on.
         /// </summary>
         public int ListenPort { get; set; }
