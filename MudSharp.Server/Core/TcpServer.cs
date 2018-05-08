@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace MudSharp.Server.Core
 {
@@ -17,11 +19,13 @@ namespace MudSharp.Server.Core
         private readonly ILoggingProvider _loggingProvider;
         private bool _accept = false;
         private TcpListener _listener;
+        private CancellationTokenSource _tokenSource;
 
         public TcpServer(IConfigProvider configProvider, ILoggingProvider loggingProvider)
         {
             _configProvider = configProvider;
             _loggingProvider = loggingProvider;
+            _tokenSource = new CancellationTokenSource();
         }
 
         /// <summary>
@@ -49,24 +53,44 @@ namespace MudSharp.Server.Core
         /// <summary>
         /// Listens on the open TCP socket for new connections.
         /// </summary>
-        public async void Listen()
+        public void Listen()
         {
-            if (_listener != null && _accept)
+            Task.Run(async () =>
             {
-                while (true)
+                if (_listener != null && _accept)
                 {
-                    var clientTask = _listener.AcceptTcpClientAsync();
-
-                    if (clientTask.Result != null)
+                    while (true)
                     {
-                        var client = clientTask.Result;
+                        if (_tokenSource.Token.IsCancellationRequested)
+                        {
+                            _loggingProvider.LogMessage("Stopping TCP listener");
+                            _accept = false;
+                            _listener.Stop();
+                            break;
+                        }
 
-                        _loggingProvider.LogMessage($"New connection from {client.Client.RemoteEndPoint.ToString()}");
+                        var clientTask = _listener.AcceptTcpClientAsync();
 
-                        await SessionManager.Instance.NewDescriptorAsync(client);
+                        if (clientTask.Result != null)
+                        {
+                            var client = clientTask.Result;
+
+                            _loggingProvider.LogMessage($"New connection from {client.Client.RemoteEndPoint.ToString()}");
+
+                            await SessionManager.Instance.NewDescriptorAsync(client);
+                        }
                     }
                 }
-            }
+            }, _tokenSource.Token);
+        }
+
+        /// <summary>
+        /// Starts shutdown of the TCP server.
+        /// </summary>
+        public void Shutdown()
+        {
+            _loggingProvider.LogMessage("Requesting cancellation of TCP listener task");
+            _tokenSource.Cancel();
         }
 
         /// <summary>

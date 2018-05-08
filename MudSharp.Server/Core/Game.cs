@@ -41,17 +41,26 @@ namespace MudSharp.Server.Core
             PerformShutdown();
         }
 
+        /// <summary>
+        /// Starts the game shutdown sequence.
+        /// </summary>
         public void Shutdown()
         {
             _running = false;
         }
 
+        /// <summary>
+        /// Actually performs the game shutdown.
+        /// </summary>
         private void PerformShutdown()
         {
             _loggingProvider.LogMessage("Shutdown complete");
             Environment.Exit(0);
         }
 
+        /// <summary>
+        /// Runs continuously and processes things like NPC actions, combat, and such.
+        /// </summary>
         private void Heartbeat()
         {
             var timeSinceStart = DateTime.UtcNow - _gameStart;
@@ -66,18 +75,25 @@ namespace MudSharp.Server.Core
                 PulseCombat();
         }
 
+        /// <summary>
+        /// Processes all zone-related actions such as weather, loading/extracting of items and NPCs, and so on.
+        /// </summary>
         private void PulseZones()
         {
 
         }
 
-
+        /// <summary>
+        /// Processes all non-combat NPC-related actions such as movement.
+        /// </summary>
         private void PulseNpcs()
         {
 
         }
 
-
+        /// <summary>
+        /// Processes all combat actions.
+        /// </summary>
         private void PulseCombat()
         {
 
