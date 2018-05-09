@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MudSharp.Data.Models
 {
-    public interface Entity
+    public interface IEntity
     {
         /// <summary>
         /// The id of the entity, used in commands and database lookups.

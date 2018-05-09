@@ -6,10 +6,11 @@
 
   <ItemGroup>
     <Folder Include="Models\World\Environment\Rooms\" />
+    <Folder Include="Repositories\Implementations\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.3" />
   </ItemGroup>
 
 </Project>

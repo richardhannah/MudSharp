@@ -1,4 +1,5 @@
-﻿using MudSharp.Data.Models.World.Actors;
+﻿using System;
+using MudSharp.Data.Models.World.Actors;
 
 namespace MudSharp.Data.Models.World.Items
 {
@@ -36,7 +37,7 @@ namespace MudSharp.Data.Models.World.Items
     /// <summary>
     /// Class describing an item.
     /// </summary>
-    public class Item : Entity
+    public class Item : IEntity
     {
         /// <summary>
         /// The item's short description (a sharp sword).
@@ -72,5 +73,11 @@ namespace MudSharp.Data.Models.World.Items
         /// The PC or NPC that currently owns the item.
         /// </summary>
         public virtual Actor Owner { get; set; }
+
+        /// <inheritdoc/>
+        public int Id { get; set; }
+
+        /// <inheritdoc/>
+        public Guid InstanceId { get; set; }
     }
 }
