@@ -9,6 +9,9 @@ using System.Text;
 
 namespace MudSharp.World
 {
+    /// <summary>
+    /// Singleton for managing all world data throughout the game.
+    /// </summary>
     public sealed class WorldManager
     {
         private static WorldManager _instance = null;
@@ -19,6 +22,9 @@ namespace MudSharp.World
             Rooms = new ConcurrentDictionary<Guid, Room>();
         }
 
+        /// <summary>
+        /// Gets the <see cref="WorldManager"/> instance.
+        /// </summary>
         public static WorldManager Instance
         {
             get
@@ -35,8 +41,19 @@ namespace MudSharp.World
 
         #region Properties
 
+        /// <summary>
+        /// All instances of <see cref="Room"/> objects in the game world. Key is the instance id, value is the object reference.
+        /// </summary>
         public ConcurrentDictionary<Guid, Room> Rooms { get; set; }
+
+        /// <summary>
+        /// All instances of <see cref="Item"/> objects in the game world. Key is the instance id, value is the object reference.
+        /// </summary>
         public ConcurrentDictionary<Guid, Item> Items { get; set; }
+
+        /// <summary>
+        /// All instances of <see cref="NonPlayer"/> objects in the game world. Key is the instance id, value is the object reference.
+        /// </summary>
         public ConcurrentDictionary<Guid, NonPlayer> NPCs { get; set; }
 
         #endregion
