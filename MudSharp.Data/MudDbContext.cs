@@ -9,6 +9,9 @@ using System.Text;
 
 namespace MudSharp.Data
 {
+    /// <summary>
+    /// Database context for all persisted objects in MudSharp.
+    /// </summary>
     public class MudDbContext : DbContext
     {
         #region Players

@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\World\Environment\Rooms\" />
-    <Folder Include="Repositories\Implementations\" />
+    <Compile Include="Models\IEntity.cs" />
   </ItemGroup>
 
   <ItemGroup>
