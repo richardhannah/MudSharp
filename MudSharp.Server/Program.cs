@@ -24,6 +24,9 @@ namespace MudSharp.Server
 
             _game = new Game(_kernel.Get<IConfigProvider>(), _kernel.Get<ILoggingProvider>());
             _game.Run();
+
+            // Since Game.Run() is blocking, we should only get here if the server is shutting down.
+            _server.Shutdown();
         }
 
         #region DI Configuration

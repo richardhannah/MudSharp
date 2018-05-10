@@ -92,14 +92,5 @@ namespace MudSharp.Server.Core
             _loggingProvider.LogMessage("SHUTDOWN: Requesting cancellation of TCP listener task");
             _tokenSource.Cancel();
         }
-
-        /// <summary>
-        /// Processes input from the descriptor.
-        /// </summary>
-        /// <param name="descriptor"></param>
-        public async void ProcessInputAsync(Descriptor descriptor)
-        {
-            
-        }
     }
 }
