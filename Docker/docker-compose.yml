@@ -1,0 +1,15 @@
+version: '3'
+
+services:  
+  mssql:
+    container_name: mudsharp-mssql
+    build:
+      context: .
+      dockerfile: ./mssql/Dockerfile
+    ports:
+    - "31433:1433"
+    volumes:
+    - ./backup
+    - mssql-data:/var/opt/mssql  
+volumes:
+  mssql-data:
